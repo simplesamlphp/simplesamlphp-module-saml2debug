@@ -4,13 +4,13 @@
  *
  * @param array &$links  The links on the frontpage, split into sections.
  */
-function saml2debug_hook_frontpage(&$links) {
-	assert('is_array($links)');
-	assert('array_key_exists("links", $links)');
+function saml2debug_hook_frontpage(&$links)
+{
+    assert(is_array($links));
+    assert(array_key_exists("links", $links));
 
-	$links['federation'][] = array(
-		'href' => \SimpleSAML\Module::getModuleURL('saml2debug/debug.php'),
-		'text' => array('en' => 'SAML 2.0 Debugger'),
-	);
-	
+    $links['federation'][] = [
+        'href' => \SimpleSAML\Module::getModuleURL('saml2debug/debug.php'),
+        'text' => ['en' => 'SAML 2.0 Debugger'],
+    ];
 }

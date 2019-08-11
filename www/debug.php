@@ -1,8 +1,11 @@
 <?php
 
-$config = SimpleSAML_Configuration::getInstance();
+$config = \SimpleSAML\Configuration::getInstance();
 
-
+/**
+ * @param string $raw
+ * @return string
+ */
 function getValue($raw)
 {
     $val = $raw;
@@ -31,6 +34,10 @@ function getValue($raw)
     return rawurldecode(stripslashes($val));
 }
 
+/**
+ * @param string $raw
+ * @return string
+ */
 function decode($raw)
 {
     $message = getValue($raw);
@@ -44,6 +51,10 @@ function decode($raw)
     return $decoded;
 }
 
+/**
+ * @param string $message
+ * @return string
+ */
 function encode($message)
 {
     if (!array_key_exists('binding', $_REQUEST)) {
@@ -73,7 +84,7 @@ if (array_key_exists('decoded', $_REQUEST)) {
     $encoded = encode($_REQUEST['decoded']);
 }
 
-$t = new SimpleSAML_XHTML_Template($config, 'saml2debug:debug.tpl.php');
+$t = new \SimpleSAML\XHTML\Template($config, 'saml2debug:debug.tpl.php');
 $t->data['encoded'] = $encoded;
 $t->data['decoded'] = $decoded;
 $t->data['activeTab'] = $activeTab;
