@@ -5,7 +5,6 @@
     totallyTyped="false"
 >
     <projectFiles>
-        <directory name="hooks" />
         <directory name="www" />
     </projectFiles>
 
