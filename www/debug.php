@@ -6,7 +6,7 @@ $config = \SimpleSAML\Configuration::getInstance();
  * @param string $raw
  * @return string
  */
-function getValue($raw)
+function getValue(string $raw): string
 {
     $val = $raw;
 
@@ -38,7 +38,7 @@ function getValue($raw)
  * @param string $raw
  * @return string
  */
-function decode($raw)
+function decode(string $raw): string
 {
     $message = getValue($raw);
 
@@ -55,7 +55,7 @@ function decode($raw)
  * @param string $message
  * @return string
  */
-function encode($message)
+function encode(string $message): string
 {
     if (!array_key_exists('binding', $_REQUEST)) {
         throw new Exception('missing binding');
@@ -68,10 +68,10 @@ function encode($message)
 }
 
 $decoded = '';
-$encoded = 'fZJNT%2BMwEIbvSPwHy%2Fd8tMvHympSdUGISuwS0cCBm%2BtMUwfbk%2FU4zfLvSVMq2Euv45n3fd7xzOb%2FrGE78KTRZXwSp5yBU1hp'.
-           'V2f8ubyLfvJ5fn42I2lNKxZd2Lon%2BNsBBTZMOhLjQ8Y77wRK0iSctEAiKLFa%2FH4Q0zgVrceACg1ny9uMy7rCdaM2%2Bs0BWrtppK2U'.
-           'AdeoVjW2ruq1bevGImcvR6zpHmtJ1MHSUZAuDKU0vY7Si2h6VU5%2BiMuJuLx65az4dPql3SHBKaz1oYnEfVkWUfG4KkeBna7A%2Fxm6M1'.
-           '4j1gZihZazBRH4MODcoKPOgl%2BB32kFz08PGd%2BG0JJIkr7v46%2BhRCaEpod17DCRivYZCkmkd4N28B3wfNyrGKP5bws9DS6PKDz%2F'.
+$encoded = 'fZJNT%2BMwEIbvSPwHy%2Fd8tMvHympSdUGISuwS0cCBm%2BtMUwfbk%2FU4zfLvSVMq2Euv45n3fd7xzOb%2FrGE78KTRZXwSp5yBU1hp' .
+           'V2f8ubyLfvJ5fn42I2lNKxZd2Lon%2BNsBBTZMOhLjQ8Y77wRK0iSctEAiKLFa%2FH4Q0zgVrceACg1ny9uMy7rCdaM2%2Bs0BWrtppK2U' .
+           'AdeoVjW2ruq1bevGImcvR6zpHmtJ1MHSUZAuDKU0vY7Si2h6VU5%2BiMuJuLx65az4dPql3SHBKaz1oYnEfVkWUfG4KkeBna7A%2Fxm6M1' .
+           '4j1gZihZazBRH4MODcoKPOgl%2BB32kFz08PGd%2BG0JJIkr7v46%2BhRCaEpod17DCRivYZCkmkd4N28B3wfNyrGKP5bws9DS6PKDz%2F' .
            'Mpsl36Tyz%2F%2Fax1jeFmi0emcLY7C%2F8SDD0Z7dobcynHbbV3QVbcZW0TlqQemNhoqzJD%2B4%2Fn8Yw7l8AA%3D%3D';
 
 $activeTab = 0;
@@ -88,4 +88,4 @@ $t = new \SimpleSAML\XHTML\Template($config, 'saml2debug:debug.tpl.php');
 $t->data['encoded'] = $encoded;
 $t->data['decoded'] = $decoded;
 $t->data['activeTab'] = $activeTab;
-$t->show();
+$t->send();

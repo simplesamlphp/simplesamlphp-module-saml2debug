@@ -1,12 +1,12 @@
 <?php
+
 /**
  * Hook to add the simple consenet admin module to the frontpage.
  *
  * @param array &$links  The links on the frontpage, split into sections.
  */
-function saml2debug_hook_frontpage(&$links)
+function saml2debug_hook_frontpage(array &$links): void
 {
-    assert(is_array($links));
     assert(array_key_exists("links", $links));
 
     $links['federation'][] = [
