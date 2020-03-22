@@ -2,6 +2,7 @@
     "name": "simplesamlphp/simplesamlphp-module-saml2debug",
     "description": "A module to debug encoding and decoding of SAML message for both the HTTP-redirect and HTTP-POST bindings.",
     "type": "simplesamlphp-module",
+    "license": "LGPL-2.1-or-later",
     "keywords": [ "simplesamlphp", "modules" ],
     "authors": [
         {
