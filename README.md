@@ -1,3 +1,7 @@
+![Build Status](https://github.com/simplesamlphp/simplesamlphp-module-saml2debug/workflows/CI/badge.svg?branch=master)
+[![Coverage Status](https://codecov.io/gh/simplesamlphp/simplesamlphp-module-saml2debug/branch/master/graph/badge.svg)](https://codecov.io/gh/simplesamlphp/simplesamlphp-module-saml2debug)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/simplesamlphp/simplesamlphp-module-saml2debug/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/simplesamlphp/simplesamlphp-module-saml2debug/?branch=master)
+
 SAML 2.0 debugger module
 ========================
 
