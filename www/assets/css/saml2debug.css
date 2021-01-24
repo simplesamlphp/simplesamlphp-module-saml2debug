@@ -1,0 +1,14 @@
+textarea#encoded {
+  width: 95%;
+  border: 1px solid #999;
+  font-family: monospace;
+}
+
+textarea#decoded {
+  width: 95%;
+  border: 1px solid #999;
+}
+
+div#margin {
+  margin: 1em
+}

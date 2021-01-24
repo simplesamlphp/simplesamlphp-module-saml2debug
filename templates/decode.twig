@@ -1,0 +1,30 @@
+{% set pagetitle = 'SAML 2.0 Debugger'|trans %}
+
+{% extends "base.twig" %}
+
+{% block preload %}
+    <link rel="stylesheet" media="screen" href="{{ asset('css/saml2debug.css', 'saml2debug') }}">
+{% endblock %}
+
+{% block content %}
+<h2>SAML 2.0 Debugger</h2>
+
+<div id="tabdiv">
+    <ul>
+        <li><a href="/encode">Encode</a></li>
+    </ul>
+
+    <div id="decode">
+        <p>Paste in a SAML message encoded with the HTTP-POST or HTTP-REDIRECT encoding. You
+         can both use the full URL that you copied from LiveHTTPHeaders, or you can paste in
+         only the SAMLRequest or SAMLResponse parameter. It will be automatically detected
+         whether you post a URL or the value it self and whether you post a HTTP-REDIRECT or
+         HTTP-POST encoded value. enjoy!</p>
+
+        <form method="post" action="/encode">
+            <textarea id="encoded" cols="50" rows="10" name="encoded">{{ encoded }}</textarea>
+            <p><input type="submit" name="decode" value="Decode SAML message »" /></p>
+        </form>
+    </div>
+</div>
+{% endblock content %}

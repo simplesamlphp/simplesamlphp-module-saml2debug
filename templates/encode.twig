@@ -1,0 +1,35 @@
+{% set pagetitle = 'SAML 2.0 Debugger'|trans %}
+
+{% extends "base.twig" %}
+
+{% block preload %}
+    <link rel="stylesheet" media="screen" href="{{ asset('css/saml2debug.css', 'saml2debug') }}">
+{% endblock %}
+
+{% block content %}
+<h2>SAML 2.0 Debugger</h2>
+
+<div id="tabdiv">
+    <ul>
+        <li><a href="#decode">Decode</a></li>
+    </ul>
+
+    <div id="encode">
+        <p>Type in the SAML Message below, and select which binding to use.</p>
+
+        <form method="post" action="/decode">
+            <textarea id="decoded" cols="50" rows="20" name="decoded">{{ decoded }}</textarea>
+            <div id="margin">
+                Use this binding:
+                <select name="binding">
+                    <option value="redirect">HTTP-REDIRECT</option>
+                    <option value="post">HTTP-POST</option>
+                </select>
+            </div>
+
+            <p><input type="submit" name="decode" value="« Encode SAML message" /></p>
+        </form>
+
+    </div>
+</div>
+{% endblock content %}
