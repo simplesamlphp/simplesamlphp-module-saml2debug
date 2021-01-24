@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @package SimpleSAML\Test
  */
-class ModInfoTest extends TestCase
+class DebugTest extends TestCase
 {
     /** @var \SimpleSAML\Configuration */
     protected Configuration $config;
@@ -48,28 +48,9 @@ class ModInfoTest extends TestCase
 
 
     /**
-     * Test that calling the controller without params results in a Template being returned
-     */
-    public function testNoParamters(): void
-    {
-        $request = Request::create(
-            '/',
-            'GET',
-        );
-
-        $c = new Controller\Debug($this->config, $this->session);
-        $response = $c->main($request);
-
-        // Validate response
-        $this->assertInstanceOf(Template::class, $response);
-        $this->assertTrue($response->isSuccessful());
-    }
-
-
-    /**
      * Test that calling the controller for decoding results in a Template being returned
      */
-    public function testDecoded(): void
+    public function testEncode(): void
     {
         $request = Request::create(
             '/',
@@ -78,7 +59,7 @@ class ModInfoTest extends TestCase
         );
 
         $c = new Controller\Debug($this->config, $this->session);
-        $response = $c->main($request);
+        $response = $c->decode($request);
 
         // Validate response
         $this->assertInstanceOf(Template::class, $response);
@@ -89,7 +70,7 @@ class ModInfoTest extends TestCase
     /**
      * Test that calling the controller for encoding results in a Template being returned
      */
-    public function testEncoded(): void
+    public function testDecoded(): void
     {
         $request = Request::create(
             '/',
@@ -98,7 +79,7 @@ class ModInfoTest extends TestCase
         );
 
         $c = new Controller\Debug($this->config, $this->session);
-        $response = $c->main($request);
+        $response = $c->decode($request);
 
         // Validate response
         $this->assertInstanceOf(Template::class, $response);
@@ -109,7 +90,7 @@ class ModInfoTest extends TestCase
     /**
      * Test that calling the controller for encoding without results in an exception being raised
      */
-    public function testEncodedWithoutBindingThrowsException(): void
+    public function testDecodedWithoutBindingThrowsException(): void
     {
         $request = Request::create(
             '/',
@@ -120,8 +101,8 @@ class ModInfoTest extends TestCase
         $c = new Controller\Debug($this->config, $this->session);
 
         $this->expectException(Error\BadRequest::class);
-        $this->expectExceptionMessage('Missing binding.');
+        $this->expectExceptionMessage('Missing binding');
 
-        $c->main($request);
+        $c->decode($request);
     }
 }

@@ -54,7 +54,34 @@ class Debug
      * @return \SimpleSAML\XHTML\Template
      * @throws \Exception
      */
-    public function main(Request $request): Template
+    public function decode(Request $request): Template
+    {
+        $decoded = '';
+        $encoded = '';
+
+        if ($request->query->has('encoded')) {
+            if (!$request->query->has('binding')) {
+                throw new Error\BadRequest('Missing binding');
+            }
+            $decoded = $this->parseEncodedMessage($request->query->get('encoded'), $request->query->get('binding'));
+        }
+
+        $t = new Template($this->config, 'saml2debug:decode.twig');
+        $t->data['encoded'] = $encoded;
+        $t->data['decoded'] = $decoded;
+
+        return $t;
+    }
+
+
+    /**
+     * Show SAML2 debugging info.
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \SimpleSAML\XHTML\Template
+     * @throws \Exception
+     */
+    public function encode(Request $request): Template
     {
         $decoded = '';
         $encoded = 'fZJNT%2BMwEIbvSPwHy%2Fd8tMvHympSdUGISuwS0cCBm%2BtMUwfbk%2FU4zfLvSVMq2Euv45n3fd7xzOb%2FrGE78KTRZXwSp5yBU1hp' .
@@ -63,24 +90,13 @@ class Debug
                    '4j1gZihZazBRH4MODcoKPOgl%2BB32kFz08PGd%2BG0JJIkr7v46%2BhRCaEpod17DCRivYZCkmkd4N28B3wfNyrGKP5bws9DS6PKDz%2F' .
                    'Mpsl36Tyz%2F%2Fax1jeFmi0emcLY7C%2F8SDD0Z7dobcynHbbV3QVbcZW0TlqQemNhoqzJD%2B4%2Fn8Yw7l8AA%3D%3D';
 
-        $activeTab = 0;
-
-        if ($request->query->has('encoded')) {
-            if (!$request->query->has('binding')) {
-                throw new Error\BadRequest('Missing binding');
-            }
-            $decoded = $this->decode($request->query->get('encoded'), $request->query->get('binding'));
-            $activeTab = 1;
-        }
-
         if ($request->query->has('decoded')) {
-            $encoded = $this->encode($request->query->get('decoded'));
+            $encoded = $this->parseDecodedMessage($request->query->get('decoded'));
         }
 
-        $t = new Template($this->config, 'saml2debug:debug.twig');
+        $t = new Template($this->config, 'saml2debug:encode.twig');
         $t->data['encoded'] = $encoded;
         $t->data['decoded'] = $decoded;
-        $t->data['activeTab'] = $activeTab;
 
         return $t;
     }
@@ -123,7 +139,7 @@ class Debug
      * @param string $raw
      * @return string
      */
-    private function decode(string $raw): string
+    private function parseDecodedMessage(string $raw): string
     {
         $message = $this->getValue($raw);
 
@@ -142,7 +158,7 @@ class Debug
      * @param string $binding
      * @return string
      */
-    private function encode(string $message, string $binding): string
+    private function parseEncodedMessage(string $message, string $binding): string
     {
         if ($binding === 'redirect') {
             return urlencode(base64_encode(gzdeflate(stripslashes($message))));
