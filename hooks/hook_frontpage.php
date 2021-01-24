@@ -1,5 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
+namespace SimpleSAML\Module\saml2debug;
+
+use SimpleSAML\Assert\Assert;
+use SimpleSAML\Module;
+
 /**
  * Hook to add the simple consenet admin module to the frontpage.
  *
@@ -7,10 +14,10 @@
  */
 function saml2debug_hook_frontpage(array &$links): void
 {
-    assert(array_key_exists("links", $links));
+    Assert::keyExists($links, "links");
 
     $links['federation'][] = [
-        'href' => \SimpleSAML\Module::getModuleURL('saml2debug/debug.php'),
+        'href' => Module::getModuleURL('saml2debug/debug.php'),
         'text' => ['en' => 'SAML 2.0 Debugger'],
     ];
 }
