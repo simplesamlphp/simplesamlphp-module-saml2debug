@@ -16,7 +16,7 @@ function saml2debug_hook_frontpage(array &$links): void
 {
     Assert::keyExists($links, "links");
 
-    $links['federation'][] = [
+    $links['config']['saml2debug'] = [
         'href' => Module::getModuleURL('saml2debug/debug.php'),
         'text' => ['en' => 'SAML 2.0 Debugger'],
     ];
