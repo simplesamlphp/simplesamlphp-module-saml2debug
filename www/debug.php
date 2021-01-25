@@ -1,7 +1,9 @@
 <?php
 
-$config = SimpleSAML_Configuration::getInstance();
+namespace SimpleSAML\Module\saml2debug;
 
+use SimpleSAML\Configuration;
+use SimpleSAML\XHTML\Template;
 
 function getValue($raw)
 {
@@ -56,6 +58,8 @@ function encode($message)
     }
 }
 
+$config = Configuration::getInstance();
+
 $decoded = '';
 $encoded = 'fZJNT%2BMwEIbvSPwHy%2Fd8tMvHympSdUGISuwS0cCBm%2BtMUwfbk%2FU4zfLvSVMq2Euv45n3fd7xzOb%2FrGE78KTRZXwSp5yBU1hp'.
            'V2f8ubyLfvJ5fn42I2lNKxZd2Lon%2BNsBBTZMOhLjQ8Y77wRK0iSctEAiKLFa%2FH4Q0zgVrceACg1ny9uMy7rCdaM2%2Bs0BWrtppK2U'.
@@ -73,7 +77,7 @@ if (array_key_exists('decoded', $_REQUEST)) {
     $encoded = encode($_REQUEST['decoded']);
 }
 
-$t = new SimpleSAML_XHTML_Template($config, 'saml2debug:debug.tpl.php');
+$t = new Template($config, 'saml2debug:debug.tpl.php');
 $t->data['encoded'] = $encoded;
 $t->data['decoded'] = $decoded;
 $t->data['activeTab'] = $activeTab;
