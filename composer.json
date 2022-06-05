@@ -14,6 +14,11 @@
             "email": "olav.morken@uninett.no"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "SimpleSAML\\Module\\saml2debug\\": "src/"
+        }
+    },
     "require": {
         "php": ">=7.4 || ^8.0",
 
