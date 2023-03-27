@@ -11,13 +11,13 @@
 
 <div id="tabdiv">
     <ul>
-        <li><a href="#decode">Decode</a></li>
+        <li><a href="{{ moduleURL('saml2debug/decode') }}"">Decode</a></li>
     </ul>
 
     <div id="encode">
         <p>Type in the SAML Message below, and select which binding to use.</p>
 
-        <form method="post" action="/decode">
+        <form method="post" action="{{ moduleURL('saml2debug/encode') }}"">
             <textarea id="decoded" cols="50" rows="20" name="decoded">{{ decoded }}</textarea>
             <div id="margin">
                 Use this binding:

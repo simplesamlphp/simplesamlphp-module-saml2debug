@@ -11,7 +11,7 @@
 
 <div id="tabdiv">
     <ul>
-        <li><a href="/encode">Encode</a></li>
+        <li><a href="{{ moduleURL('saml2debug/encode') }}">Encode</a></li>
     </ul>
 
     <div id="decode">
@@ -21,7 +21,7 @@
          whether you post a URL or the value it self and whether you post a HTTP-REDIRECT or
          HTTP-POST encoded value. enjoy!</p>
 
-        <form method="post" action="/encode">
+        <form method="post" action="{{ moduleURL('saml2debug/decode') }}"">
             <textarea id="encoded" cols="50" rows="10" name="encoded">{{ encoded }}</textarea>
             <p><input type="submit" name="decode" value="Decode SAML message »" /></p>
         </form>
