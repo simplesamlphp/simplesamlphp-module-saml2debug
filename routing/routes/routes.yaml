@@ -1,3 +1,18 @@
 saml2debug-main:
-    path:       /
-    defaults:   { _controller: 'SimpleSAML\Module\saml2debug\Controller\Debug::main' }
+  path: /
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+  defaults:
+    path: /saml2debug/decode
+    permanent: true
+
+saml2debug-decode:
+  path: /decode
+  defaults: {
+    _controller: 'SimpleSAML\Module\saml2debug\Controller\Debug::decode'
+  }
+
+saml2debug-encode:
+  path: /encode
+  defaults: {
+    _controller: 'SimpleSAML\Module\saml2debug\Controller\Debug::encode'
+  }
