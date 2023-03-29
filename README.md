@@ -34,5 +34,5 @@ in `config.php`, search for the `module.enable` key and set `saml2debug` to true
 
 ## Usage
 
-Once installed, you can use the module by going to the *federation* tab in the web interface of SimpleSAMLphp. You will
+Once installed, you can use the module by going to the *configuration* tab in the web interface of SimpleSAMLphp. You will
 see a link there to the debugger, allowing you to encode and decode SAML 2.0 messages, selecting the binding to use.
