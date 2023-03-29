@@ -14,7 +14,7 @@ use SimpleSAML\XHTML\Template;
 function saml2debug_hook_configpage(Template &$template): void
 {
     $template->data['links'][] = [
-        'href' => Module::getModuleURL('saml2debug/debug.php'),
+        'href' => Module::getModuleURL('saml2debug/decode'),
         'text' => Translate::noop('SAML 2.0 Debugger'),
     ];
 
