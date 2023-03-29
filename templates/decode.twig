@@ -22,7 +22,7 @@
          HTTP-POST encoded value. enjoy!</p>
 
         <form method="post" action="{{ moduleURL('saml2debug/decode') }}"">
-            <textarea id="encoded" cols="50" rows="10" name="encoded">{{ encoded }}</textarea>
+            <textarea id="encoded" cols="50" rows="10" name="encoded">{{ decoded }}</textarea>
             <p><input type="submit" name="decode" value="Decode SAML message »" /></p>
         </form>
     </div>

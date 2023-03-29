@@ -18,7 +18,7 @@
         <p>Type in the SAML Message below, and select which binding to use.</p>
 
         <form method="post" action="{{ moduleURL('saml2debug/encode') }}"">
-            <textarea id="decoded" cols="50" rows="20" name="decoded">{{ decoded }}</textarea>
+            <textarea id="encoded" cols="50" rows="20" name="encoded">{{ encoded }}</textarea>
             <div id="margin">
                 Use this binding:
                 <select name="binding">
