@@ -59,7 +59,7 @@ class Debug
         $decoded = '';
         $encoded = '';
 
-        if ($request->query->has('encoded')) {
+        if ($request->request->has('encoded')) {
             if (!$request->query->has('binding')) {
                 throw new Error\BadRequest('Missing binding');
             }
@@ -90,7 +90,7 @@ class Debug
                    '4j1gZihZazBRH4MODcoKPOgl%2BB32kFz08PGd%2BG0JJIkr7v46%2BhRCaEpod17DCRivYZCkmkd4N28B3wfNyrGKP5bws9DS6PKDz%2F' .
                    'Mpsl36Tyz%2F%2Fax1jeFmi0emcLY7C%2F8SDD0Z7dobcynHbbV3QVbcZW0TlqQemNhoqzJD%2B4%2Fn8Yw7l8AA%3D%3D';
 
-        if ($request->query->has('decoded')) {
+        if ($request->request->has('decoded')) {
             $encoded = $this->parseDecodedMessage($request->query->get('decoded'));
         }
 
