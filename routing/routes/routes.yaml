@@ -4,15 +4,18 @@ saml2debug-main:
   defaults:
     path: /saml2debug/decode
     permanent: true
+  methods: [GET]
 
 saml2debug-decode:
   path: /decode
   defaults: {
     _controller: 'SimpleSAML\Module\saml2debug\Controller\Debug::decode'
   }
+  methods: [GET, POST]
 
 saml2debug-encode:
   path: /encode
   defaults: {
     _controller: 'SimpleSAML\Module\saml2debug\Controller\Debug::encode'
   }
+  methods: [GET, POST]
