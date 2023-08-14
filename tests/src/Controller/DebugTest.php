@@ -54,7 +54,7 @@ class DebugTest extends TestCase
     {
         $request = Request::create(
             '/',
-            'GET',
+            'POST',
             ['decoded' => 'something']
         );
 
@@ -70,11 +70,11 @@ class DebugTest extends TestCase
     /**
      * Test that calling the controller for encoding results in a Template being returned
      */
-    public function testDecoded(): void
+    public function testDecode(): void
     {
         $request = Request::create(
             '/',
-            'GET',
+            'POST',
             ['encoded' => self::$encoded, 'binding' => 'redirect']
         );
 
@@ -88,13 +88,13 @@ class DebugTest extends TestCase
 
 
     /**
-     * Test that calling the controller for encoding without results in an exception being raised
+     * Test that calling the controller for encoding without binding results in an exception being raised
      */
-    public function testDecodedWithoutBindingThrowsException(): void
+    public function testDecodeWithoutBindingThrowsException(): void
     {
         $request = Request::create(
             '/',
-            'GET',
+            'POST',
             ['encoded' => self::$encoded]
         );
 

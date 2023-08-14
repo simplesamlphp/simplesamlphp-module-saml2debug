@@ -60,7 +60,14 @@ class Debug
         $encoded = '';
 
         if ($request->request->has('encoded')) {
-            $decoded = $this->parseDecodedMessage($request->request->get('encoded'));
+            if (!$request->request->has('binding')) {
+                throw new Error\BadRequest('Missing binding');
+            }
+
+            $decoded = $this->parseEncodedMessage(
+                $request->request->get('encoded'),
+                $request->request->get('binding'),
+            );
         }
 
         $t = new Template($this->config, 'saml2debug:decode.twig');
@@ -88,10 +95,7 @@ class Debug
                    'Mpsl36Tyz%2F%2Fax1jeFmi0emcLY7C%2F8SDD0Z7dobcynHbbV3QVbcZW0TlqQemNhoqzJD%2B4%2Fn8Yw7l8AA%3D%3D';
 
         if ($request->request->has('decoded')) {
-            if (!$request->request->has('binding')) {
-                throw new Error\BadRequest('Missing binding');
-            }
-            $encoded = $this->parseEncodedMessage($request->request->get('decoded'), $request->request->get('binding'));
+            $encoded = $this->parseDecodedMessage($request->request->get('decoded'));
         }
 
         $t = new Template($this->config, 'saml2debug:encode.twig');
