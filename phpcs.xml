@@ -7,10 +7,10 @@
     </description>
 
     <file>hooks</file>
+    <file>public</file>
     <file>src</file>
     <file>templates</file>
     <file>tests</file>
-    <file>www</file>
 
     <!-- Use this to exclude paths. You can have multiple patterns -->
     <!--<exclude-pattern>*/tests/*</exclude-pattern>-->
@@ -18,5 +18,6 @@
 
     <!-- This is the rule we inherit from. If you want to exclude some specific rules, see the docs on how to do that -->
     <rule ref="PSR12"/>
+    <rule ref="vendor/simplesamlphp/simplesamlphp-test-framework/phpcs-simplesamlphp.xml"/>
 </ruleset>
 
