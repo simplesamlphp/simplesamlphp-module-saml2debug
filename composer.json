@@ -24,7 +24,7 @@
         "ext-zlib": "*",
 
         "simplesamlphp/simplesamlphp": "^2.1",
-        "symfony/http-foundation": "^6.4"
+        "symfony/http-foundation": "^7.1"
     },
     "require-dev": {
         "simplesamlphp/simplesamlphp-test-framework": "^1.5"
