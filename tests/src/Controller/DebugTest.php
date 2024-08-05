@@ -40,7 +40,7 @@ class DebugTest extends TestCase
                 'module.enable' => ['saml2debug' => true],
             ],
             '[ARRAY]',
-            'simplesaml'
+            'simplesaml',
         );
 
         $this->session = Session::getSessionFromRequest();
@@ -55,7 +55,7 @@ class DebugTest extends TestCase
         $request = Request::create(
             '/',
             'POST',
-            ['decoded' => 'something']
+            ['decoded' => 'something'],
         );
 
         $c = new Controller\Debug($this->config, $this->session);
@@ -75,7 +75,7 @@ class DebugTest extends TestCase
         $request = Request::create(
             '/',
             'POST',
-            ['encoded' => self::$encoded, 'binding' => 'redirect']
+            ['encoded' => self::$encoded, 'binding' => 'redirect'],
         );
 
         $c = new Controller\Debug($this->config, $this->session);
@@ -95,7 +95,7 @@ class DebugTest extends TestCase
         $request = Request::create(
             '/',
             'POST',
-            ['encoded' => self::$encoded]
+            ['encoded' => self::$encoded],
         );
 
         $c = new Controller\Debug($this->config, $this->session);
