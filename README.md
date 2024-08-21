@@ -1,6 +1,6 @@
 # SAML 2.0 debugger module
 
-![Build Status](https://github.com/simplesamlphp/simplesamlphp-module-saml2debug/workflows/CI/badge.svg?branch=master)
+![Build Status](https://github.com/simplesamlphp/simplesamlphp-module-saml2debug/actions/workflows/php.yml/badge.svg)
 [![Coverage Status](https://codecov.io/gh/simplesamlphp/simplesamlphp-module-saml2debug/branch/master/graph/badge.svg)](https://codecov.io/gh/simplesamlphp/simplesamlphp-module-saml2debug)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/simplesamlphp/simplesamlphp-module-saml2debug/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/simplesamlphp/simplesamlphp-module-saml2debug/?branch=master)
 [![Type Coverage](https://shepherd.dev/github/simplesamlphp/simplesamlphp-module-saml2debug/coverage.svg)](https://shepherd.dev/github/simplesamlphp/simplesamlphp-module-saml2debug)
