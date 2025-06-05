@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @package SimpleSAML\Test
  */
-class DebugTest extends TestCase
+final class DebugTest extends TestCase
 {
     /** @var \SimpleSAML\Configuration */
     protected Configuration $config;
