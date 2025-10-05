@@ -107,9 +107,9 @@ class Debug
 
     /**
      * @param string $raw
-     * @return string
+     * @return string[]|string
      */
-    private function getValue(string $raw): string
+    private function getValue(string $raw): array|string
     {
         $val = $raw;
 
