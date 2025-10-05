@@ -115,7 +115,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-          extensions: ctype, date, dom, fileinfo, filter, hash, intl, mbstring, openssl, pcre, posix, spl, xml
+          extensions: ctype, date, dom, fileinfo, filter, hash, intl, mbstring, openssl, pcre, posix, spl, xml, zip
           tools: composer
           ini-values: error_reporting=E_ALL
           coverage: none
@@ -161,7 +161,7 @@ jobs:
         with:
           # Should be the higest supported version, so we can use the newest tools
           php-version: '8.4'
-          tools: composer, composer-require-checker, composer-unused, phpcs, psalm
+          tools: composer, composer-require-checker, composer-unused, psalm
           # optional performance gain for psalm: opcache
           extensions: ctype, date, dom, fileinfo, filter, hash, intl, mbstring, opcache, openssl, pcre, posix, spl, xml
 
@@ -193,7 +193,7 @@ jobs:
         run: composer-unused
 
       - name: PHP Code Sniffer
-        run: phpcs
+        run: vendor/bin/phpcs
 
       - name: Psalm
         continue-on-error: true
