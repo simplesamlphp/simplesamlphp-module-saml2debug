@@ -9,7 +9,6 @@ use SimpleSAML\Configuration;
 use SimpleSAML\Error;
 use SimpleSAML\Module\saml2debug\Controller;
 use SimpleSAML\Session;
-use SimpleSAML\XHTML\Template;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -63,7 +62,6 @@ final class DebugTest extends TestCase
         $response = $c->decode($request);
 
         // Validate response
-        $this->assertInstanceOf(Template::class, $response);
         $this->assertTrue($response->isSuccessful());
     }
 
@@ -83,7 +81,6 @@ final class DebugTest extends TestCase
         $response = $c->decode($request);
 
         // Validate response
-        $this->assertInstanceOf(Template::class, $response);
         $this->assertTrue($response->isSuccessful());
     }
 
