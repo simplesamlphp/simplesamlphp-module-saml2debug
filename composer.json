@@ -20,14 +20,14 @@
         }
     },
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "ext-zlib": "*",
 
-        "simplesamlphp/simplesamlphp": "^2.4.0",
-        "symfony/http-foundation": "^6.4.0"
+        "simplesamlphp/simplesamlphp": "^2.5@dev",
+        "symfony/http-foundation": "^7.4"
     },
     "require-dev": {
-        "simplesamlphp/simplesamlphp-test-framework": "^1.10.2"
+        "simplesamlphp/simplesamlphp-test-framework": "^1.11"
     },
     "config": {
         "allow-plugins": {
